@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Inter } from "next/font/google";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -12,6 +13,8 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "moDee",
@@ -30,10 +33,19 @@ export default function RootLayout({
       >
         moDee
       </h1>
+      <div className="flex items-center justify-between">
+        PLACEHOLDER CTA or stats
+      </div>
     </header>
   );
 
-  const footer = <footer className="p-4 sm:p-8">Footer here</footer>;
+  const footer = (
+    <footer className="p-4 sm:p-8 grid place-items-center">
+      <p className={"text-amber-700 font-bold" + inter.className}>
+        Created with 💛💛💛💛💛
+      </p>
+    </footer>
+  );
 
   return (
     <html lang="en">
